@@ -1,4 +1,6 @@
 <?php
+require('../app/functions.php');
+
 $name = 'Taro<script>alert(1);</script>';
 ?>
 <!DOCTYPE html>
@@ -8,6 +10,6 @@ $name = 'Taro<script>alert(1);</script>';
   <title>PHP Practice</title>
 </head>
 <body>
-  <p>Hello, <?= htmlspecialchars($name, ENT_QUOTES, 'UTF-8'); ?></p>
+  <p>Hello, <?= h($name); ?></p>
 </body>
 </html>
