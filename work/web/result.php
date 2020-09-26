@@ -1,10 +1,8 @@
 <?php
 require('../app/functions.php');
 
-// $color = filter_input(INPUT_GET, 'color');
-// $color = empty($color) ? 'None selected' : $color;
-// $color = isset($color) ? $color: 'None selected';
-$color = filter_input(INPUT_GET, 'color') ?? 'None selected';
+$color = filter_input(INPUT_GET, 'color') ?? 'transparent';
+
 include('../app/_parts/_header.php');
 ?>
 <p><?= h($color); ?></p>
