@@ -16,15 +16,15 @@ $names = [
 </head>
 <body>
   <ul>
-    <?php if(empty($names)) { ?>
+    <?php if(empty($names)): ?>
       <li>Nobody!</li>
-    <?php } else { ?>    
-      <?php foreach($names as $name) { ?>
-        <li>
-          <?= h($name); ?>
-        </li>
-      <?php } ?>
-    <?php } ?>
+    <?php else: ?>    
+    <?php foreach($names as $name): ?>
+      <li>
+        <?= h($name); ?>
+      </li>
+    <?php endforeach; ?>
+    <?php endif; ?>
   </ul>
 </body>
 </html>
