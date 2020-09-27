@@ -11,7 +11,7 @@ class Signup extends \MyApp\Controller {
     }
 
     // get users info
-    if($_SERVER['REQUEST_METHOD' === 'POST']) {
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
       $this->postProcess();
     }
   }
@@ -21,10 +21,15 @@ class Signup extends \MyApp\Controller {
     try {
       $this->_validate();
     } catch (\MyApp\Exception\InvalidEmail $e) {
-
+      echo $e->getMessage();
+      exit;
     } catch (\MyApp\Exception\InvalidPassword $e) {
-
+      echo $e->getMessage();
+      exit;
     }
+
+    echo "success";
+    exit;
     // create user
 
     // redirect to login
