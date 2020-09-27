@@ -39,8 +39,19 @@ class Signup extends \MyApp\Controller {
       return;
     } else {
       // create user
+      try {
+        $userModel = new \MyApp\Model\User();
+        $userModel->create([
+          'email' => $_POST['email'],
+          'password' => $_POST['password']
+        ]);
+      } catch (\MyApp\Exception\DuplicateEmail $e) {
+        $this->setErrors('email', $e->getMessage());
+        return;// if文から抜ける redirect処理は走る
+      }
 
       // redirect to login
+      header('Location: ' . SITE_URL . '/login.php');
 
     }
 
