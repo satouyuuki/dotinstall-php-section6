@@ -4,6 +4,8 @@
 
 require_once(__DIR__ . '/../app/config/config.php');
 
-$app = new MyApp\Controller\Index();
+// $app = new MyApp\Controller\Index();
 
-$app->run();
+// $app->run();
+
+var_dump($_SESSION['me']);

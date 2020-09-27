@@ -46,6 +46,7 @@ class Login extends \MyApp\Controller {
       }
 
       // login 処理
+      session_regenerate_id(true);
       $_SESSION['me'] = $user;
 
       // redirect to home
