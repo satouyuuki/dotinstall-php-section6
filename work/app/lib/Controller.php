@@ -7,6 +7,9 @@ class Controller {
   private $_values;
 
   public function __construct() {
+    if(!isset($_SESSION['token'])) {
+      $_SESSION['token'] = bin2hex(random_bytes(32));
+    }
     // エラーオブジェクトの初期化
     $this->_errors = new \stdClass();
     $this->_values = new \stdClass();

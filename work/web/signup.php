@@ -23,6 +23,7 @@ $app->run();
 <body>
   <div id="container">
     <form action="" method="post" id="signup">
+      <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
       <p>
         <input type="text" name="email" placeholder="email" value="<?= isset($app->getValues()->email) ? h($app->getValues()->email) : ''; ?>">
       </p>
