@@ -33,6 +33,7 @@ $app->run();
         <li><?= h($user->email); ?></li>
       <?php endforeach; ?>
     </ul>
+    <p class="fs12"><a href="/create.php">Create</a></p>
   </div>
 </body>
 </html>

@@ -8,6 +8,14 @@ create table users (
 
 desc users;
 
+create table posts (
+  id int not null auto_increment primary key,
+  user_id int not null,
+  text text not null,
+  created datetime,
+  modified datetime
+);
+
 
 後で文字コードの問題になりそう
 SHOW VARIABLES LIKE '%collation%';
