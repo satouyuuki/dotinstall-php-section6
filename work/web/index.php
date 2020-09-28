@@ -11,7 +11,7 @@ $app->run();
 // $app->me();
 // $app->getValues()->users;
 
-// var_dump($_SESSION['me']);
+// var_dump($app->getValues()->posts);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -27,13 +27,30 @@ $app->run();
       <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
       <?= h($app->me()->email); ?> <input type="submit" value="Log Out">
     </form>
-    <h1>Users <span class="fs12">(<?= count($app->getValues()->users) ?>)</span></h1>
-    <ul>
-      <?php foreach($app->getValues()->users as $user): ?>
-        <li><?= h($user->email); ?></li>
-      <?php endforeach; ?>
-    </ul>
+    <h1>Posts <span class="fs12">(<?= count($app->getValues()->posts) ?>)</span></h1>
+    <form action="" method="post" id="delete" name="delete">
+      <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
+      <ul>
+        <?php foreach($app->getValues()->posts as $post): ?>
+          <li>
+            <?= h($post->text); ?>
+            <?= h($post->email); ?>
+            <?php if($app->me()->id === $post->user_id): ?>
+              <button type="submit" class="delete" onclick="return checkConfirm();" name="id" value="<?= h($post->id); ?>">削除</button>
+            <?php endif; ?>
+          </li>
+        <?php endforeach; ?>
+      </ul>
+    </form>
     <p class="fs12"><a href="/create.php">Create</a></p>
   </div>
+  <script type="text/javascript">
+    const checkConfirm = () => {
+      const flag = window.confirm('本当に削除しますか？');
+      if(!flag) {
+        return false;
+      }
+    }
+  </script>
 </body>
 </html>

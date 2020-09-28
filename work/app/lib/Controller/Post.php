@@ -2,7 +2,7 @@
 
 namespace MyApp\Controller;
 
-class Create extends \MyApp\Controller {
+class Post extends \MyApp\Controller {
   public function run() {
     if(!$this->isLoggedIn()) {
       // login
@@ -10,7 +10,7 @@ class Create extends \MyApp\Controller {
       exit;
     }
 
-    // get users info
+    // get posts info
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
       $this->postProcess();
     }
@@ -33,8 +33,6 @@ class Create extends \MyApp\Controller {
       return;
     } else {
       // create user
-      echo 'hogehgoe';
-      var_dump($this->me()->id);
       try {
         $postModel = new \MyApp\Model\Post();
         $postModel->create([
@@ -49,7 +47,6 @@ class Create extends \MyApp\Controller {
       // redirect to home
       header('Location: ' . SITE_URL);
     }
-
   }
 
   private function _validate() {

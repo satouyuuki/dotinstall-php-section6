@@ -4,14 +4,12 @@
 
 require_once(__DIR__ . '/../app/config/config.php');
 
-$app = new MyApp\Controller\Create();
+$app = new MyApp\Controller\Post();
 
 $app->run();
 
-// var_dump($app->me());
+// $app->me();
 // $app->getValues()->users;
-
-// var_dump($_SESSION['me']);
 ?>
 <!DOCTYPE html>
 <html lang="ja">

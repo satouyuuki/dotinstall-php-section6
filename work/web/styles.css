@@ -59,3 +59,8 @@ h1 {
 ul > li {
   padding: 3px 0;
 }
+
+.delete {
+  /* display: inline-block;
+  border: 1px solid #ccc; */
+}

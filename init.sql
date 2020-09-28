@@ -24,3 +24,6 @@ SHOW VARIABLES LIKE '%char%';
 // TODO 追加予定
 - ./mysql/db/my.cnf:/etc/mysql/conf.d/my.cnf
 - ./mysql/db/sql:/docker-entrypoint-initdb.d
+
+
+select p.text, u.email from posts as p INNER JOIN users as u on p.user_id = u.id
